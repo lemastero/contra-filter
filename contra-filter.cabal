@@ -1,0 +1,43 @@
+cabal-version: 1.12
+
+name:           contra-filter
+category:       Control
+version:        0.0.1
+description:    Please see the README on GitHub at <https://github.com/lemastero/contra-filter#readme>
+homepage:       https://github.com/lemastero/contra-filter#readme
+bug-reports:    https://github.com/lemastero/contra-filter/issues
+author:         Piotr Paradzinski - lemastero
+maintainer:     Piotr Paradzinski <piotr.paradzinski@gmail.com>
+copyright:      BSD
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    .gitignore
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/lemastero/contra-filter
+
+library
+  exposed-modules: Data.Trifunctor
+  hs-source-dirs:  src
+  build-depends:
+      base >=4.7 && <5
+  default-language: Haskell2010
+
+test-suite contra-filter-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_contra-filter
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , contra-filter
+    , hspec
+  default-language: Haskell2010
